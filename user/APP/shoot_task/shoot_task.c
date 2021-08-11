@@ -344,7 +344,8 @@ static void shoot_contorl(Shoot_t* shoot_control)
 						}
 						else
 							key_fire=1;
-
+						if(toe_is_error(frictionmotorRTOE) || toe_is_error(frictionmotorLTOE))
+							flag_fire=1;
 						if(flag_fire==1/*&& shoot_control->shoot_flag ==1&&shoot_control->remaining_shoot_heat>99*/)        
 						{
                 shoot_control->friction3_angle_pid.set = shoot_control->motor_friction3.shoot_motor_measure->real_ecd+big_angle*36; 
